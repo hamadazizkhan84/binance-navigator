@@ -107,8 +107,7 @@ No private API keys required for core functionality.
 Built for the **Binance × OpenClaw AI Competition (March 4-18, 2026)**
 
 - 🔗 GitHub: https://github.com/hamadazizkhan84/binance-navigator
-- 🐦 X Post: [link]
-- 🎬 Demo Video: [link]
+
 
 ---
 
