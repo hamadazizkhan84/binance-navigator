@@ -108,7 +108,6 @@ Built for the **Binance × OpenClaw AI Competition (March 4-18, 2026)**
 
 - 🔗 GitHub: https://github.com/hamadazizkhan84/binance-navigator
 
-
 ---
 
 ## Security
