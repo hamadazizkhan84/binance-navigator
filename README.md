@@ -1,152 +1,130 @@
-# 🟡 Binance Navigator AI — OpenClaw Skill
-
-> Your personal crypto learning co-pilot. Built for the Binance × OpenClaw AI Competition (Mar 2026).
-
-Binance Navigator is an OpenClaw skill that combines **live Binance market data** with an **AI-powered adaptive learning system**. It builds personalized crypto education roadmaps, tracks your Binance portfolio in real time, teaches concepts interactively, and quizzes you — all inside your OpenClaw assistant.
+# 🟡 Binance Navigator AI
+> A true crypto navigation co-pilot powered by OpenClaw — built for the Binance × OpenClaw AI Competition 2026
 
 ---
 
-## ✨ Features
+## What Is This?
 
-| Feature | Description |
-|---|---|
-| 🗺 **Personalized Roadmap** | AI builds a custom 4-phase learning path based on your level and goals |
-| 📊 **Live Market Data** | Real-time prices and 24hr stats direct from Binance API |
-| 💼 **Portfolio View** | See your Binance balances and total portfolio value live |
-| 📚 **Concept Teaching** | Interactive lessons across Crypto Basics, Binance Products, Trading & DeFi |
-| 🧠 **Quiz Mode** | Multiple-choice quizzes with scoring and personalized feedback |
-| 📈 **Trade History** | View your recent trades per symbol |
-| 📉 **Candlestick Data** | Historical OHLCV data for any symbol and timeframe |
-| ✅ **Progress Tracking** | Track completed topics and get next-step recommendations |
+Binance Navigator AI is an OpenClaw skill that acts as a **true navigator** to the Binance ecosystem. Instead of answering from AI memory, it fetches real data from official Binance sources and guides users directly to the right resources.
+
+**Core Philosophy:** Every answer includes a real Binance link. The AI navigates — Binance educates.
 
 ---
 
-## 🚀 Installation
+## 8 Features
 
-### Option 1 — Install via npx (recommended)
+| Feature | Description | Data Source |
+|---|---|---|
+| 🗺 **Learning Journey Engine** | Assigns personalized week-by-week learning plans using real Binance Academy courses | Binance Academy |
+| 📊 **Live Market Data** | Fetches real-time prices, 24hr stats, and market overview | Binance Public API |
+| 📚 **Academy Navigator** | Finds the most relevant Binance Academy article for any topic | Binance Academy RSS |
+| 🔗 **Product Navigator** | Links directly to exact Binance products with deep URLs | Binance.com |
+| 📰 **News & Announcements** | Fetches latest from Binance blog and announcements | Binance Blog |
+| 🧠 **Quiz Mode** | Quizzes users based on real Binance Academy content | Binance Academy |
+| 🔍 **Glossary Lookup** | Instant definitions from Binance Academy glossary | Binance Academy |
+| 🏆 **Learn & Earn Navigator** | Guides users to earn crypto rewards through Binance's program | Binance Learn & Earn |
+
+---
+
+## 4 Learning Journeys
+
+Based on experience level and goals, users are assigned one of:
+
+| Journey | For | Track | Duration | Certificate |
+|---|---|---|---|---|
+| 🌱 The Explorer | Beginners | Beginner Track | 4-6 weeks | NFT Certificate |
+| 📈 The Trader | Some Experience | Intermediate Track | 6-8 weeks | NFT Certificate |
+| 🌊 The DeFi Diver | Intermediate | Intermediate + BNB Chain | 8-10 weeks | Multiple |
+| 🔨 The Builder | Advanced/Dev | BNB Developer Specialization | 12-16 weeks | Dev Certificate |
+
+Each journey includes a week-by-week schedule with real module names, estimated times, and direct Academy links.
+
+---
+
+## Installation
+
+### Requirements
+- [OpenClaw](https://openclaw.ai) installed
+- A Discord bot token
+- A supported AI provider (Google Gemini recommended — free tier)
+
+### Install
+
+**Option 1 — Clone directly:**
 ```bash
-npx playbooks add skill openclaw/skills --skill binance-navigator
+cd ~/.openclaw/workspace/skills
+git clone https://github.com/hamadazizkhan84/binance-navigator
 ```
 
-### Option 2 — Install via OpenClaw CLI
-```bash
-openclaw add @binance-navigator
+**Option 2 — Manual:**
+1. Download this repository
+2. Copy the `binance-navigator` folder to `~/.openclaw/workspace/skills/`
+3. Restart OpenClaw gateway: `openclaw gateway`
+
+### Workspace Files
+Also copy these to your `~/.openclaw/workspace/` directory:
+- `AGENTS.md` — agent identity instructions
+- `SOUL.md` — core behavior rules
+
+---
+
+## Usage Examples
+
 ```
-
-### Option 3 — Manual install
-```bash
-# Clone into your OpenClaw skills folder
-git clone https://github.com/YOUR_USERNAME/binance-navigator ~/.openclaw/workspace/skills/binance-navigator
-
-# Then refresh skills in OpenClaw
-openclaw agent --message "refresh skills"
+@YourBot start                          → Full onboarding + journey assignment
+@YourBot price of BTC                   → Live price from Binance API
+@YourBot market overview                → Top 5 coins live data
+@YourBot teach me about DeFi            → Real Binance Academy article
+@YourBot what is APY?                   → Binance Academy glossary
+@YourBot how do I start earning?        → Product navigator + direct link
+@YourBot latest news                    → Binance blog + announcements
+@YourBot quiz me                        → Quiz based on Academy content
+@YourBot learn and earn                 → Learn & Earn portal guide
+@YourBot next                           → Next module in their journey
 ```
 
 ---
 
-## ⚙️ Setup
+## API Sources Used
 
-### 1. Get your Binance API Key
-1. Log into [Binance.com](https://binance.com)
-2. Go to **Profile → API Management**
-3. Click **Create API**
-4. Choose **System Generated**
-5. Label it `openclaw-navigator`
-6. Enable: ✅ Read Info only (no trading permissions needed for learning features)
-7. Copy your **API Key** and **Secret Key**
+All data comes from official Binance sources:
 
-### 2. Set environment variables
-```bash
-export BINANCE_API_KEY="your_api_key_here"
-export BINANCE_SECRET="your_secret_here"
+```
+Live Prices:      https://api.binance.com/api/v3/ticker/24hr
+Academy RSS:      https://api.binance.vision/api/feed
+Academy Search:   https://academy.binance.com/en/search
+Binance Blog:     https://www.binance.com/en/blog
+Announcements:    https://www.binance.com/en/support/announcement
+Learn & Earn:     https://www.binance.com/en/learn-and-earn
 ```
 
-Or add to your OpenClaw config (`~/.openclaw/openclaw.json`):
-```json
-{
-  "skills": {
-    "entries": {
-      "binance-navigator": {
-        "enabled": true,
-        "env": {
-          "BINANCE_API_KEY": "your_api_key_here",
-          "BINANCE_SECRET": "your_secret_here"
-        }
-      }
-    }
-  }
-}
-```
-
-### 3. Requirements
-- `curl` — pre-installed on macOS/Linux
-- `jq` — install with `brew install jq` (macOS) or `apt install jq` (Linux)
-- OpenClaw v2026 or later
+No private API keys required for core functionality.
 
 ---
 
-## 💬 Usage Examples
+## Competition Submission
 
-Once installed, just talk to your OpenClaw assistant naturally:
+Built for the **Binance × OpenClaw AI Competition (March 4-18, 2026)**
 
-```
-You: start my learning path
-Navigator: Let's build your roadmap! What's your experience level?...
-
-You: what's the price of BTC?
-Navigator: 🟡 BTC/USDT is currently $67,432.50 (+2.3% in 24h)
-
-You: show my portfolio
-Navigator: 💼 Your Binance Portfolio: BTC: 0.05 ($3,371) | ETH: 1.2 ($4,180)...
-
-You: teach me about liquidity pools
-Navigator: 📚 Liquidity Pools — think of it like a shared vending machine...
-
-You: quiz me
-Navigator: ❓ Question 1 of 3 — What does AMM stand for?...
-
-You: how's the market today?
-Navigator: 📊 Market Overview — BTC 🟢 +2.3% | ETH 🟢 +1.8% | BNB 🔴 -0.5%...
-```
+- 🔗 GitHub: https://github.com/hamadazizkhan84/binance-navigator
+- 🐦 X Post: [link]
+- 🎬 Demo Video: [link]
 
 ---
 
-## 📁 File Structure
+## Security
 
-```
-binance-navigator/
-├── SKILL.md       ← OpenClaw skill definition (instructions + API tools)
-├── README.md      ← This file
-└── _meta.json     ← ClawHub registry metadata
-```
+- No private Binance API keys required for core features
+- All market data uses public Binance REST endpoints
+- No user data is stored or transmitted
+- Open source — fully auditable
 
 ---
 
-## 🔐 Security
-
-- This skill uses **read-only** Binance API access by default
-- API keys are stored in your local OpenClaw environment only
-- No data is sent to third parties — all API calls go directly to `api.binance.com`
-- Never enable withdrawal permissions on the API key used with this skill
-
----
-
-## ⚠️ Disclaimer
-
-This skill is for **educational purposes only**. It does not provide financial advice. Crypto trading involves significant risk. Always do your own research before making investment decisions.
-
----
-
-## 🏆 Competition Submission
-
-Built for the **Binance × OpenClaw AI Competition** (Mar 4–18, 2026).
-
-**Project:** Binance Navigator AI
-**Category:** Crypto Educator / Binance UX Enhancement
-**Focus:** All four tracks — Crypto Basics, Binance Products, Trading Strategy, DeFi & Web3
-
----
-
-## 📄 License
+## License
 
 MIT License — free to use, modify, and distribute.
+
+---
+
+*Built with ❤️ for the Binance ecosystem*

@@ -1,17 +1,16 @@
 {
-  "name": "binance-navigator",
-  "displayName": "Binance Navigator AI",
-  "description": "Your personal crypto learning co-pilot. Builds adaptive learning paths, fetches live Binance market data, tracks your portfolio, teaches concepts interactively, and quizzes you across Crypto Basics, Binance Products, Trading Strategy, and DeFi/Web3.",
-  "version": "1.0.0",
-  "author": "binance-navigator",
-  "emoji": "🟡",
+  "name": "Binance Navigator AI",
+  "description": "A true crypto navigation co-pilot that guides users to official Binance resources. Features personalized learning journeys using real Binance Academy courses, live market data from Binance API, Academy article finder, product navigator with deep links, news fetcher, quiz mode, glossary lookup, and Learn & Earn guide.",
+  "version": "2.0.0",
+  "author": "hamadazizkhan84",
   "category": "finance",
-  "tags": ["binance", "crypto", "learning", "education", "trading", "defi", "portfolio", "market-data"],
+  "tags": ["binance", "crypto", "learning", "education", "trading", "defi", "portfolio", "market-data", "academy", "web3", "bnb-chain"],
   "requires": {
-    "bins": ["curl", "jq"],
-    "env": ["BINANCE_API_KEY", "BINANCE_SECRET"]
+    "bins": [],
+    "env": []
   },
-  "homepage": "https://github.com/YOUR_USERNAME/binance-navigator",
-  "repository": "https://github.com/YOUR_USERNAME/binance-navigator",
-  "license": "MIT"
+  "links": {
+    "github": "https://github.com/hamadazizkhan84/binance-navigator",
+    "demo": ""
+  }
 }
